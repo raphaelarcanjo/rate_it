@@ -1,0 +1,12 @@
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="navbar-nav container">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link {% if title == 'Home' %}active{% endif %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'about' %}" class="nav-link {% if title == 'About' %}active{% endif %}">About</a>
+        </li>
+    </ul>
+    
+    <small class="mt-4 w-100 text-secondary text-center">All rights reserved <a href="https://github.com/raphaelarcanjo">raphaelarcanjo</a> 2022</small>
+</nav>
