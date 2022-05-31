@@ -1,6 +1,9 @@
+<section class="container-fluid bg-info text-center">
+    <p class="fs-1 fw-bold m-0 py-3">Rate It</p>
+</section>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Rate It</a>
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -17,6 +20,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if title == 'About' %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if title == 'Contact' %}active{% endif %}" aria-current="page" href="{% url 'contact' %}">Contact</a>
                 </li>
                 {% comment %} <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
