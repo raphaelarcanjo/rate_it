@@ -8,3 +8,6 @@ class Contact:
         }
 
         return render(request, 'contact.html', data)
+
+    def message(self, request):
+        pass

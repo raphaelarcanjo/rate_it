@@ -1,4 +1,29 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+<p class="fs-4">Contact</p>
+<hr />
+
+<form action="{% url 'contact_message' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-2">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" class="form-control"></textarea>
+    </div>
+    <div class="mb-2">
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+</form>
 {% endblock content %}
