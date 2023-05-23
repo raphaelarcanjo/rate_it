@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.contrib.messages import constants as message_constants
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,3 +117,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    message_constants.DEBUG: "alert-secondary",
+    message_constants.INFO: "alert-info",
+    message_constants.SUCCESS: "alert-success",
+    message_constants.WARNING: "alert-warning",
+    message_constants.ERROR: "alert-danger",
+    }

@@ -2,9 +2,10 @@ from django.shortcuts import render
 
 
 class About:
-    def index(self, request):
-        data = {
+    def __init__(self):
+        self.data = {
             'title': 'About'
-        }
-
-        return render(request, 'about.html', data)
+            }
+    
+    def index(self, request):
+        return render(request, 'about.html', self.data)
