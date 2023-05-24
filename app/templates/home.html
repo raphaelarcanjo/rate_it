@@ -1,15 +1,48 @@
-{% extends 'layouts/base.html' %}
-
-{% block content %}
+{% extends 'layouts/base.html' %} {% block content %}
 <article>
     <p class="fs-4">Top 5 Entertainments</p>
     <hr />
 
     <div class="row">
-        {% include 'layouts/elements/rating_stars.html' with area_title="Movies" %}
-        {% include 'layouts/elements/rating_stars.html' with area_title="Musics" %}
-        {% include 'layouts/elements/rating_stars.html' with area_title="Books" %}
-        {% include 'layouts/elements/rating_stars.html' with area_title="Games" %}
+        <div class="col-12 col-lg-3">
+            <p class="fs-5 text-decoration-underline">Movies</p>
+            {% if movies %}
+                {% include 'layouts/elements/entertainment.html' with entertainments=movies %}
+                <a href="{% url 'movies' %}">View more...</a>
+            {% else %}
+                <p class="alert alert-info">Movies are not registered yet!</p>
+            {% endif %}
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <p class="fs-5 text-decoration-underline">Musics</p>
+            {% if musics %}
+                {% include 'layouts/elements/entertainment.html' with entertainments=musics %}
+                <a href="{% url 'musics' %}">View more...</a>
+            {% else %}
+                <p class="alert alert-info">Musics are not registered yet!</p>
+            {% endif %}
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <p class="fs-5 text-decoration-underline">Books</p>
+            {% if books %}
+                {% include 'layouts/elements/entertainment.html' with entertainments=books %}
+                <a href="{% url 'books' %}">View more...</a>
+            {% else %}
+                <p class="alert alert-info">Books are not registered yet!</p>
+            {% endif %}
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <p class="fs-5 text-decoration-underline">Games</p>
+            {% if games %}
+                {% include 'layouts/elements/entertainment.html' with entertainments=games %}
+                <a href="{% url 'games' %}">View more...</a>
+            {% else %}
+                <p class="alert alert-info">Games are not registered yet!</p>
+            {% endif %}
+        </div>
     </div>
 </article>
 {% endblock content %}

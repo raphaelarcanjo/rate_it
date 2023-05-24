@@ -23,16 +23,16 @@
                     </li>
                     <hr class="text-secondary d-lg-none" />
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link disabled">Movies</a>
+                        <a class="nav-link {% if title == 'Movies' %}active{% endif %}" aria-current="page" href="{% url 'movies' %}">Movies</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link disabled">Musics</a>
+                        <a class="nav-link {% if title == 'Musics' %}active{% endif %}" aria-current="page" href="{% url 'musics' %}">Musics</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link disabled">Books</a>
+                        <a class="nav-link {% if title == 'Books' %}active{% endif %}" aria-current="page" href="{% url 'books' %}">Books</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link disabled">Games</a>
+                        <a class="nav-link {% if title == 'Games' %}active{% endif %}" aria-current="page" href="{% url 'games' %}">Games</a>
                     </li>
                     <hr class="text-secondary d-lg-none" />
                     <li class="nav-item mx-lg-2">

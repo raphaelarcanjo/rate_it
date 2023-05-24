@@ -1,15 +1,44 @@
 <nav class="navbar navbar-dark bg-dark">
-    <ul class="navbar-nav container">
-        <li class="nav-item">
-            <a href="{% url 'home' %}" class="nav-link {% if title == 'Home' %}active{% endif %}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url 'about' %}" class="nav-link {% if title == 'About' %}active{% endif %}">About</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url 'contact' %}" class="nav-link {% if title == 'Contact' %}active{% endif %}">Contact</a>
-        </li>
-    </ul>
+    <div class="row px-5">
+        <div class="col-12 col-lg-3">
+            <ul class="navbar-nav align-content-start px-5 me-5">
+                <p class="fs-4 text-info">
+                    Navigation
+                </p>
+
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link {% if title == 'Home' %}active{% endif %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link {% if title == 'About' %}active{% endif %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'contact' %}" class="nav-link {% if title == 'Contact' %}active{% endif %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <ul class="navbar-nav align-content-start px-5 me-5">
+                <p class="fs-4 text-info">
+                    Entertainments
+                </p>
+
+                <li class="nav-item mx-lg-2">
+                    <a class="nav-link {% if title == 'Movies' %}active{% endif %}" aria-current="page" href="{% url 'movies' %}">Movies</a>
+                </li>
+                <li class="nav-item mx-lg-2">
+                    <a class="nav-link {% if title == 'Musics' %}active{% endif %}" aria-current="page" href="{% url 'musics' %}">Musics</a>
+                </li>
+                <li class="nav-item mx-lg-2">
+                    <a class="nav-link {% if title == 'Books' %}active{% endif %}" aria-current="page" href="{% url 'books' %}">Books</a>
+                </li>
+                <li class="nav-item mx-lg-2">
+                    <a class="nav-link {% if title == 'Games' %}active{% endif %}" aria-current="page" href="{% url 'games' %}">Games</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     
-    <small class="mt-4 w-100 text-secondary text-center">All rights reserved <a href="https://github.com/raphaelarcanjo" class="text-decoration-none text-info" target="_blank">raphaelarcanjo</a> 2022</small>
+    <small class="mt-4 w-100 text-secondary text-center">All rights reserved <a href="https://github.com/raphaelarcanjo" class="text-decoration-none text-info" target="_blank">©raphaelarcanjo</a> 2023</small>
 </nav>
