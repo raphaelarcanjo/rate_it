@@ -1,7 +1,6 @@
-{% comment %} até aqui {% endcomment %}
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid justify-content-lg-center">
-        <a class="navbar-brand p-0 me-0 d-lg-none text-info" href="{% url 'home' %}" aria-label="Bootstrap">Rate It</a>
+        <a class="navbar-brand p-0 me-0 d-lg-none text-info" href="{{ path('home') }}" aria-label="Bootstrap">Rate It</a>
         <button class="navbar-toggler d-lg-none"
                 type="button"
                 data-bs-toggle="offcanvas"
@@ -19,27 +18,27 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-lg-row">
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% if app.current_route == 'home' %}active{% endif %}" aria-current="page" href="{{ path('home') }}">Home</a>
                     </li>
                     <hr class="text-secondary d-lg-none" />
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Movies' %}active{% endif %}" aria-current="page" href="{% url 'movies' %}">Movies</a>
+                        <a class="nav-link {% if app.current_route == 'movie' %}active{% endif %}" aria-current="page" href="{{ path('movie') }}">Movies</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Musics' %}active{% endif %}" aria-current="page" href="{% url 'musics' %}">Musics</a>
+                        <a class="nav-link {% if app.current_route == 'music' %}active{% endif %}" aria-current="page" href="{{ path('music') }}">Musics</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Books' %}active{% endif %}" aria-current="page" href="{% url 'books' %}">Books</a>
+                        <a class="nav-link {% if app.current_route == 'book' %}active{% endif %}" aria-current="page" href="{{ path('book') }}">Books</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Games' %}active{% endif %}" aria-current="page" href="{% url 'games' %}">Games</a>
+                        <a class="nav-link {% if app.current_route == 'game' %}active{% endif %}" aria-current="page" href="{{ path('game') }}">Games</a>
                     </li>
                     <hr class="text-secondary d-lg-none" />
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'About' %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a>
+                        <a class="nav-link {% if app.current_route == 'about' %}active{% endif %}" aria-current="page" href="{{ path('about') }}">About</a>
                     </li>
                     <li class="nav-item mx-lg-2">
-                        <a class="nav-link {% if title == 'Contact' %}active{% endif %}" aria-current="page" href="{% url 'contact' %}">Contact</a>
+                        <a class="nav-link {% if app.current_route == 'contact' %}active{% endif %}" aria-current="page" href="{{ path('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -47,11 +46,15 @@
     </div>
 </nav>
 
-{% if messages %}
-    {% for message in messages %}
-        <div{% if message.tags %} class="alert alert-dismissible fade show {{ message.tags }}" role="alert"{% endif %}>
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
-{% endif %}
+{% for label, message in app.flashes %}
+    <div class="alert alert-dismissible fade show alert-{{ label }}" role="alert">
+        <ul class="nav">
+            {% for text in message %}
+            <li class="nav-item">
+                {{ text }}
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}

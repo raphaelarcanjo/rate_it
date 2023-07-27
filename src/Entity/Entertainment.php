@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: EntertainmentRepository::class)]
 class Entertainment
 {
+    public const Movie = 1;
+    public const Book = 2;
+    public const Music = 3;
+    public const Game = 4;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -28,6 +33,9 @@ class Entertainment
 
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $genre = null;
+
+    #[ORM\Column(type: Types::SMALLINT)]
+    private ?int $type = null;
 
     public function getId(): ?int
     {
@@ -90,6 +98,18 @@ class Entertainment
     public function setGenre(?string $genre): static
     {
         $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }

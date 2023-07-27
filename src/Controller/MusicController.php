@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MusicController extends AbstractController
 {
-    #[Route('/music', name: 'app_music')]
+    #[Route('/music', name: 'music')]
     public function index(): Response
     {
         return $this->render('music/index.html.twig', [

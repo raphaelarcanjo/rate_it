@@ -7,13 +7,13 @@
                 </p>
 
                 <li class="nav-item">
-                    <a href="{% url 'home' %}" class="nav-link {% if title == 'Home' %}active{% endif %}">Home</a>
+                    <a href="{{ path('home') }}" class="nav-link {% if app.current_route == 'home' %}active{% endif %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'about' %}" class="nav-link {% if title == 'About' %}active{% endif %}">About</a>
+                    <a href="{{ path('about') }}" class="nav-link {% if app.current_route == 'about' %}active{% endif %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'contact' %}" class="nav-link {% if title == 'Contact' %}active{% endif %}">Contact</a>
+                    <a href="{{ path('contact') }}" class="nav-link {% if app.current_route == 'contact' %}active{% endif %}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -25,16 +25,16 @@
                 </p>
 
                 <li class="nav-item mx-lg-2">
-                    <a class="nav-link {% if title == 'Movies' %}active{% endif %}" aria-current="page" href="{% url 'movies' %}">Movies</a>
+                    <a class="nav-link {% if app.current_route == 'movie' %}active{% endif %}" aria-current="page" href="{{ path('movie') }}">Movies</a>
                 </li>
                 <li class="nav-item mx-lg-2">
-                    <a class="nav-link {% if title == 'Musics' %}active{% endif %}" aria-current="page" href="{% url 'musics' %}">Musics</a>
+                    <a class="nav-link {% if app.current_route == 'music' %}active{% endif %}" aria-current="page" href="{{ path('music') }}">Musics</a>
                 </li>
                 <li class="nav-item mx-lg-2">
-                    <a class="nav-link {% if title == 'Books' %}active{% endif %}" aria-current="page" href="{% url 'books' %}">Books</a>
+                    <a class="nav-link {% if app.current_route == 'book' %}active{% endif %}" aria-current="page" href="{{ path('book') }}">Books</a>
                 </li>
                 <li class="nav-item mx-lg-2">
-                    <a class="nav-link {% if title == 'Games' %}active{% endif %}" aria-current="page" href="{% url 'games' %}">Games</a>
+                    <a class="nav-link {% if app.current_route == 'game' %}active{% endif %}" aria-current="page" href="{{ path('game') }}">Games</a>
                 </li>
             </ul>
         </div>

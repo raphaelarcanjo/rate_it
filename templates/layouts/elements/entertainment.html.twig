@@ -25,7 +25,7 @@
                     {{ entertainment.genre }}
                 </td>
                 <td>
-                    {% include 'layouts/elements/rating_stars.html' with id=entertainment.id %}
+                    {{ include('layouts/elements/rating_stars.html.twig', {id: entertainment.id}) }}
                 </td>
             </tr>
         {% endfor %}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include 'layouts/head.html' %}
+{% include 'layouts/head.html.twig' %}
 
 <body>
     <section class="container-fluid bg-info text-center d-none d-lg-block">
@@ -9,15 +9,15 @@
     </section>
     
     <header class="mb-5 sticky-top">
-        {% include 'layouts/header.html' %}
+        {% include 'layouts/header.html.twig' %}
     </header>
 
     <main class="container">
         {% block content %}{% endblock content %}
     </main>
 
-    <footer class="mt-5 position-absolute bottom-0 left-0 w-100">
-        {% include 'layouts/footer.html' %}
+    <footer class="mt-5">
+        {% include 'layouts/footer.html.twig' %}
     </footer>
 </body>
 
