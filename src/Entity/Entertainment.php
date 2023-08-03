@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EntertainmentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,6 +38,14 @@ class Entertainment
 
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $type = null;
+
+    #[ORM\ManyToMany(targetEntity: EntertainmentGroup::class, mappedBy: 'id_entertainment')]
+    private Collection $entertainmentGroups;
+
+    public function __construct()
+    {
+        $this->entertainmentGroups = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -110,6 +120,33 @@ class Entertainment
     public function setType(int $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EntertainmentGroup>
+     */
+    public function getEntertainmentGroups(): Collection
+    {
+        return $this->entertainmentGroups;
+    }
+
+    public function addEntertainmentGroup(EntertainmentGroup $entertainmentGroup): static
+    {
+        if (!$this->entertainmentGroups->contains($entertainmentGroup)) {
+            $this->entertainmentGroups->add($entertainmentGroup);
+            $entertainmentGroup->addIdEntertainment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEntertainmentGroup(EntertainmentGroup $entertainmentGroup): static
+    {
+        if ($this->entertainmentGroups->removeElement($entertainmentGroup)) {
+            $entertainmentGroup->removeIdEntertainment($this);
+        }
 
         return $this;
     }

@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\EntertainmentCollection;
+use App\Entity\EntertainmentGroup;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<EntertainmentCollection>
+ * @extends ServiceEntityRepository<EntertainmentGroup>
  *
- * @method EntertainmentCollection|null find($id, $lockMode = null, $lockVersion = null)
- * @method EntertainmentCollection|null findOneBy(array $criteria, array $orderBy = null)
- * @method EntertainmentCollection[]    findAll()
- * @method EntertainmentCollection[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method EntertainmentGroup|null find($id, $lockMode = null, $lockVersion = null)
+ * @method EntertainmentGroup|null findOneBy(array $criteria, array $orderBy = null)
+ * @method EntertainmentGroup[]    findAll()
+ * @method EntertainmentGroup[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EntertainmentCollectionRepository extends ServiceEntityRepository
+class EntertainmentGroupRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, EntertainmentCollection::class);
+        parent::__construct($registry, EntertainmentGroup::class);
     }
 
 //    /**
-//     * @return EntertainmentCollection[] Returns an array of EntertainmentCollection objects
+//     * @return EntertainmentGroup[] Returns an array of EntertainmentGroup objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class EntertainmentCollectionRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?EntertainmentCollection
+//    public function findOneBySomeField($value): ?EntertainmentGroup
 //    {
 //        return $this->createQueryBuilder('e')
 //            ->andWhere('e.exampleField = :val')

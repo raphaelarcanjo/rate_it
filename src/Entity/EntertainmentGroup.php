@@ -2,29 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\EntertainmentCollectionRepository;
+use App\Repository\EntertainmentGroupRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: EntertainmentCollectionRepository::class)]
-class EntertainmentCollection
+#[ORM\Entity(repositoryClass: EntertainmentGroupRepository::class)]
+class EntertainmentGroup
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToMany(targetEntity: Entertainment::class, inversedBy: 'entertainmentCollections')]
+    #[ORM\ManyToMany(targetEntity: Entertainment::class, inversedBy: 'entertainmentGroups')]
     private Collection $id_entertainment;
 
-    #[ORM\ManyToMany(targetEntity: Collection::class)]
-    private Collection $id_collection;
+    #[ORM\ManyToMany(targetEntity: Group::class, inversedBy: 'entertainmentGroups')]
+    private Collection $id_group;
 
     public function __construct()
     {
         $this->id_entertainment = new ArrayCollection();
-        $this->id_collection = new ArrayCollection();
+        $this->id_group = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -57,25 +57,25 @@ class EntertainmentCollection
     }
 
     /**
-     * @return Collection<int, Collection>
+     * @return Collection<int, Group>
      */
-    public function getIdCollection(): Collection
+    public function getIdGroup(): Collection
     {
-        return $this->id_collection;
+        return $this->id_group;
     }
 
-    public function addIdCollection(Collection $idCollection): static
+    public function addIdGroup(Group $idGroup): static
     {
-        if (!$this->id_collection->contains($idCollection)) {
-            $this->id_collection->add($idCollection);
+        if (!$this->id_group->contains($idGroup)) {
+            $this->id_group->add($idGroup);
         }
 
         return $this;
     }
 
-    public function removeIdCollection(Collection $idCollection): static
+    public function removeIdGroup(Group $idGroup): static
     {
-        $this->id_collection->removeElement($idCollection);
+        $this->id_group->removeElement($idGroup);
 
         return $this;
     }

@@ -33,7 +33,8 @@ services:
       - rate_it
   php_fpm_rate_it:
     privileged: true
-    image: php:8.2-fpm
+    build: .devops/php-fpm
+    image: php_fpm_rate_it
     container_name: php_fpm_rate_it
     volumes:
       - ./:/var/www/html
